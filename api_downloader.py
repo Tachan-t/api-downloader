@@ -38,9 +38,11 @@ def trabalhador_download(url, formato, task_id):
         'progress_hooks': [lambda d: hook_progresso(d, task_id)],
         'quiet': True,
         'no_warnings': True,
-        # 🔥 CLOUD: Removemos o ffmpeg_location. O servidor usará o FFmpeg nativo do Linux.
-        # Se você for testar isso no seu Windows, garanta que o ffmpeg.exe está na variável PATH do sistema, 
-        # ou coloque o ffmpeg.exe na mesma pasta deste script Python.
+        
+        # 🔥 TÁTICA ANTI-BOT: Disfarçar a requisição como um celular Android
+        'extractor_args': {
+            'youtube': ['player_client=android,web']
+        }
     }
 
     if formato == 'audio':
